@@ -18,23 +18,23 @@ export class WeatherComponent implements OnInit, OnDestroy {
   cityWeatherLagos: CustomResponse = new CustomResponse;
   cityWeatherIbadan: CustomResponse = new CustomResponse;
   cityWeatherOsogbo: CustomResponse = new CustomResponse;
-
+  city: string[] = ["Lagos", "ibadan", "osogbo"];
   citiesWeather: CustomResponse[] = [];
 
   constructor(private weatherService: WeatherService) { }
 
 
   ngOnInit(): void {
-    this.getWeatherReportLagos();
-    this.getWeatherReportIbadan();
-    this.getWeatherReportOsogbo();
-    console.log(this.citiesWeather);
+    this.getWeatherReportLagos(this.city[0]);
+    this.getWeatherReportIbadan(this.city[1]);
+    this.getWeatherReportOsogbo(this.city[2]);
+
   }
 
-  getWeatherReportLagos(): void {
+  getWeatherReportLagos(city: string): void {
 
     this.subscriptions.push(
-      this.weatherService.getWeatherReportLagos().subscribe({
+      this.weatherService.getWeatherReportLagos(city).subscribe({
         next: (response: HttpResponse<any>) => {
 
           this.cityWeatherLagos.cityName = response.body.name;
@@ -59,12 +59,14 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
 
 
+
+
   }
 
-  getWeatherReportIbadan(): void {
+  getWeatherReportIbadan(city: string): void {
 
     this.subscriptions.push(
-      this.weatherService.getWeatherReportIbadan().subscribe({
+      this.weatherService.getWeatherReportIbadan(city).subscribe({
         next: (response: HttpResponse<any>) => {
 
           this.cityWeatherIbadan.cityName = response.body.name;
@@ -90,10 +92,10 @@ export class WeatherComponent implements OnInit, OnDestroy {
 
   }
 
-  getWeatherReportOsogbo(): void {
+  getWeatherReportOsogbo(city: string): void {
 
     this.subscriptions.push(
-      this.weatherService.getWeatherReportOsogbo().subscribe({
+      this.weatherService.getWeatherReportOsogbo(city).subscribe({
         next: (response: HttpResponse<any>) => {
 
           this.cityWeatherOsogbo.cityName = response.body.name;
