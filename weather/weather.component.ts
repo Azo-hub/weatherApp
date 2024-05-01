@@ -19,6 +19,8 @@ export class WeatherComponent implements OnInit, OnDestroy {
   cityWeatherIbadan: CustomResponse = new CustomResponse;
   cityWeatherOsogbo: CustomResponse = new CustomResponse;
 
+  citiesWeather: CustomResponse[] = [];
+
   constructor(private weatherService: WeatherService) { }
 
 
@@ -26,6 +28,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
     this.getWeatherReportLagos();
     this.getWeatherReportIbadan();
     this.getWeatherReportOsogbo();
+    console.log(this.citiesWeather);
   }
 
   getWeatherReportLagos(): void {
@@ -40,6 +43,8 @@ export class WeatherComponent implements OnInit, OnDestroy {
           this.cityWeatherLagos.description = response.body.weather[0].description;
           this.cityWeatherLagos.imageUrl = `https://openweathermap.org/img/wn/${response.body.weather[0].icon}@2x.png`;
           this.cityWeatherLagos.humdity = response.body.main.humidity;
+
+          this.citiesWeather.push(this.cityWeatherLagos);
 
         },
         error: (errorResponse: HttpErrorResponse) => {
@@ -69,6 +74,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
           this.cityWeatherIbadan.imageUrl = `https://openweathermap.org/img/wn/${response.body.weather[0].icon}@2x.png`;
           this.cityWeatherIbadan.humdity = response.body.main.humidity;
 
+          this.citiesWeather.push(this.cityWeatherIbadan);
         },
         error: (errorResponse: HttpErrorResponse) => {
 
@@ -97,6 +103,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
           this.cityWeatherOsogbo.imageUrl = `https://openweathermap.org/img/wn/${response.body.weather[0].icon}@2x.png`;
           this.cityWeatherOsogbo.humdity = response.body.main.humidity;
 
+          this.citiesWeather.push(this.cityWeatherOsogbo);
         },
         error: (errorResponse: HttpErrorResponse) => {
 

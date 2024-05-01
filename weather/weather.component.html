@@ -1,38 +1,38 @@
 <div class="container my-5">
     <h2 class="d-flex justify-content-center py-1 gb-3">Weather App</h2>
     <div class="row d-flex justify-content-center py-5 gy-4">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngFor="let weather of citiesWeather">
             <div class="card text-body card-bg" style=" border-radius: 35px;">
                 <div class="card-body p-4">
 
                     <div class="d-flex">
-                        <h6 class="flex-grow-1 custom-text-color">{{cityWeatherLagos.cityName}}</h6>
+                        <h6 class="flex-grow-1 custom-text-color">{{weather.cityName}}</h6>
 
                     </div>
 
                     <div class="d-flex flex-column text-center mt-5 mb-4">
 
                         <h6 class="display-4 mb-0 font-weight-bold custom-text-color">
-                            {{cityWeatherLagos.temperature}}°C </h6>
-                        <span class="small custom-text-color">{{cityWeatherLagos.description}}</span>
+                            {{weather.temperature}}°C </h6>
+                        <span class="small custom-text-color">{{weather.description}}</span>
                     </div>
 
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 custom-text-color" style="font-size: 1rem;">
                             <div>
                                 <i class="bi bi-wind"></i> <span class="ms-1">
-                                    {{cityWeatherLagos.windSpeed}} m/s
+                                    {{weather.windSpeed}} m/s
                                 </span>
                             </div>
                             <div>
                                 <i class="bi bi-droplet-half"></i> <span class="ms-1">
-                                    {{cityWeatherLagos.humdity}} %
+                                    {{weather.humdity}} %
                                 </span>
                             </div>
 
                         </div>
                         <div>
-                            <img [src]=cityWeatherLagos.imageUrl width="100px">
+                            <img [src]=weather.imageUrl width="100px">
                         </div>
                     </div>
 
@@ -40,83 +40,6 @@
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card text-body card-bg" style=" border-radius: 35px;">
-                <div class="card-body p-4">
-
-                    <div class="d-flex">
-                        <h6 class="flex-grow-1 custom-text-color">{{cityWeatherIbadan.cityName}}</h6>
-
-                    </div>
-
-                    <div class="d-flex flex-column text-center mt-5 mb-4">
-
-                        <h6 class="display-4 mb-0 font-weight-bold custom-text-color">
-                            {{cityWeatherIbadan.temperature}}°C </h6>
-                        <span class="small custom-text-color">{{cityWeatherIbadan.description}}</span>
-                    </div>
-
-                    <div class="d-flex align-items-center">
-                        <div class="flex-grow-1 custom-text-color" style="font-size: 1rem;">
-                            <div>
-                                <i class="bi bi-wind"></i> <span class="ms-1">
-                                    {{cityWeatherIbadan.windSpeed}} m/s
-                                </span>
-                            </div>
-                            <div>
-                                <i class="bi bi-droplet-half"></i> <span class="ms-1">
-                                    {{cityWeatherIbadan.humdity}} %
-                                </span>
-                            </div>
-
-                        </div>
-                        <div>
-                            <img [src]=cityWeatherIbadan.imageUrl width="100px">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card text-body card-bg" style=" border-radius: 35px;">
-                <div class="card-body p-4">
-
-                    <div class="d-flex">
-                        <h6 class="flex-grow-1 custom-text-color">{{cityWeatherOsogbo.cityName}}</h6>
-
-                    </div>
-
-                    <div class="d-flex flex-column text-center mt-5 mb-4">
-
-                        <h6 class="display-4 mb-0 font-weight-bold custom-text-color">
-                            {{cityWeatherOsogbo.temperature}}°C </h6>
-                        <span class="small custom-text-color">{{cityWeatherOsogbo.description}}</span>
-                    </div>
-
-                    <div class="d-flex align-items-center">
-                        <div class="flex-grow-1 custom-text-color" style="font-size: 1rem;">
-                            <div>
-                                <i class="bi bi-wind"></i> <span class="ms-1">
-                                    {{cityWeatherOsogbo.windSpeed}} m/s
-                                </span>
-                            </div>
-                            <div>
-                                <i class="bi bi-droplet-half"></i> <span class="ms-1">
-                                    {{cityWeatherOsogbo.humdity}} %
-                                </span>
-                            </div>
-
-                        </div>
-                        <div>
-                            <img [src]=cityWeatherOsogbo.imageUrl width="100px">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
 
     </div>
